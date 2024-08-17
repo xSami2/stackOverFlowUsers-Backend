@@ -9,11 +9,11 @@ import lombok.Data;
 public class bookmarkedUsers {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.UUID)
-  String uuid;
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  Long ID;
 
   @Column(unique = true, nullable = false)
-  Long user_id;
+  Long userId;
 
 
 }

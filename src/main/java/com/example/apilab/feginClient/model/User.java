@@ -1,4 +1,4 @@
-package com.example.apilab.model;
+package com.example.apilab.feginClient.model;
 
 import lombok.Data;
 
@@ -6,6 +6,9 @@ import lombok.Data;
 public class User {
 
     private UserBadgeCounts badge_counts;
+    private long view_count;
+    private long answer_count;
+    private long question_count;
     private long account_id;
     private boolean is_employee;
     private long last_modified_date;

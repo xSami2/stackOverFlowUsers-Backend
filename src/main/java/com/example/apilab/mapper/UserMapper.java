@@ -3,7 +3,7 @@ package com.example.apilab.mapper;
 import java.util.ArrayList;
 import java.util.List;
 import com.example.apilab.DTO.UserDTO;
-import com.example.apilab.model.UsersResponse;
+import com.example.apilab.feginClient.model.UsersResponse;
 import org.springframework.stereotype.Component;
 
 @Component

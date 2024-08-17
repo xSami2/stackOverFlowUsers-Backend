@@ -1,4 +1,4 @@
-package com.example.apilab.model;
+package com.example.apilab.feginClient.model;
 
 import lombok.Data;
 

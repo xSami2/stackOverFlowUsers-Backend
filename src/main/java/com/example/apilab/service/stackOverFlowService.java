@@ -2,10 +2,11 @@ package com.example.apilab.service;
 
 import com.example.apilab.entity.bookmarkedUsers;
 import com.example.apilab.feginClient.stackOverFlowClient;
-import com.example.apilab.model.ExportRequest;
-import com.example.apilab.model.User;
-import com.example.apilab.model.UsersResponse;
+import com.example.apilab.feginClient.model.ExportRequest;
+import com.example.apilab.feginClient.model.User;
+import com.example.apilab.feginClient.model.UsersResponse;
 import com.example.apilab.repository.BookMarkedUsersRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -21,11 +22,14 @@ import java.util.List;
 public class stackOverFlowService {
 
 
+
+
     private final stackOverFlowClient stackOverFlowClient;
     private final BookMarkedUsersRepository bookmarkedUsersRepository;
 
     public List<User> getStackOverFlowUsers() {
         UsersResponse users = stackOverFlowClient.getUsers();
+        System.out.println(users.getItems());
         return users.getItems();
     }
     public void exportStackOverFlowUsersFile(ExportRequest request) throws IOException {
@@ -46,18 +50,24 @@ public class stackOverFlowService {
 
 
     }
-    public void saveBookmarkedUsers(List<User> usersList) {
+    public void saveBookmarkedUser(Long userId) {
 
         try{
-            for (User user : usersList) {
                 bookmarkedUsers bookmarkedUser = new bookmarkedUsers();
-                bookmarkedUser.setUser_id(user.getUser_id());
+                bookmarkedUser.setUserId(userId);
                 bookmarkedUsersRepository.save(bookmarkedUser);
-            }
         }catch (DataIntegrityViolationException ignored){
 
         }
 
+    }
+    public List<Long> getBookmarkedUsersIds(){
+        return bookmarkedUsersRepository.getAllUserIds();
+    }
+
+    @Transactional
+    public void deleteBookmarkUser(Long userId) {
+        bookmarkedUsersRepository.deleteByUserId(userId);
     }
 
     private List<User> sortUsersDescending(List<User> users) {
@@ -115,6 +125,10 @@ public class stackOverFlowService {
                 myWriter.write(user.getReputation() + "\t");
                 myWriter.write(user.getLocation() + "\t");
                 myWriter.write(user.getUser_type() + "\t");
+                myWriter.write(user.getView_count() + "\t");
+                myWriter.write(user.getQuestion_count() + "\t");
+                myWriter.write(user.getAnswer_count() + "\t");
+                myWriter.write(user.getProfile_image() + "\t");
                 myWriter.write("\n");
             }
             myWriter.close();
