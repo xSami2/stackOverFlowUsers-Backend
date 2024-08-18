@@ -1,4 +1,4 @@
-package com.example.apilab.config;
+package com.example.StackOverFlowBackend.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @Component
-public class cors implements WebMvcConfigurer {
+public class CORS implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {

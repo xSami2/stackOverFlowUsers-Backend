@@ -1,4 +1,4 @@
-package com.example.apilab.entity;
+package com.example.StackOverFlowBackend.entity;
 
 
 import jakarta.persistence.*;
@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class bookmarkedUsers {
+public class BookmarkedUsers {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

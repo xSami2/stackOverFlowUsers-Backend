@@ -1,11 +1,10 @@
-package com.example.apilab.feginClient.model;
+package com.example.StackOverFlowBackend.model;
 
 import lombok.Data;
 
 @Data
 public class User {
 
-    private UserBadgeCounts badge_counts;
     private long view_count;
     private long answer_count;
     private long question_count;

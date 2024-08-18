@@ -1,4 +1,4 @@
-package com.example.apilab.feginClient.model;
+package com.example.StackOverFlowBackend.model;
 
 import lombok.Data;
 

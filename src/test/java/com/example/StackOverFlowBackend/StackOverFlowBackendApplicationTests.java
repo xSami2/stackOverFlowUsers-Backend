@@ -1,10 +1,10 @@
-package com.example.apilab;
+package com.example.StackOverFlowBackend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApiLabApplicationTests {
+class StackOverFlowBackendApplicationTests {
 
     @Test
     void contextLoads() {
