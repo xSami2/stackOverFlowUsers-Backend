@@ -1,7 +1,7 @@
-package com.example.StackOverFlowBackend.service;
+package com.sami.StackOverFlowBackend.service;
 
-import com.example.StackOverFlowBackend.entity.BookmarkedUsers;
-import com.example.StackOverFlowBackend.repository.BookMarkedUsersRepository;
+import com.sami.StackOverFlowBackend.entity.BookmarkedUsers;
+import com.sami.StackOverFlowBackend.repository.BookMarkedUsersRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;

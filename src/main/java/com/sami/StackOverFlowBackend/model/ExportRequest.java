@@ -1,6 +1,6 @@
-package com.example.StackOverFlowBackend.model;
+package com.sami.StackOverFlowBackend.model;
 
-import com.example.StackOverFlowBackend.DTO.UserDTO;
+import com.sami.StackOverFlowBackend.DTO.UserDTO;
 import lombok.Data;
 
 import java.util.List;

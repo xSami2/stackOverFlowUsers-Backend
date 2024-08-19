@@ -1,6 +1,6 @@
-package com.example.StackOverFlowBackend.repository;
+package com.sami.StackOverFlowBackend.repository;
 
-import com.example.StackOverFlowBackend.entity.BookmarkedUsers;
+import com.sami.StackOverFlowBackend.entity.BookmarkedUsers;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

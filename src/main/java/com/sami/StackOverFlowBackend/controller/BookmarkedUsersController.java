@@ -1,6 +1,6 @@
-package com.example.StackOverFlowBackend.controller;
+package com.sami.StackOverFlowBackend.controller;
 
-import com.example.StackOverFlowBackend.service.BookmarkedUsersService;
+import com.sami.StackOverFlowBackend.service.BookmarkedUsersService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

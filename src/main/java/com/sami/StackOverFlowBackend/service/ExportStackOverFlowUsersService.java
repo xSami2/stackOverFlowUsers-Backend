@@ -1,8 +1,7 @@
-package com.example.StackOverFlowBackend.service;
+package com.sami.StackOverFlowBackend.service;
 
-import com.example.StackOverFlowBackend.DTO.UserDTO;
-import com.example.StackOverFlowBackend.model.ExportRequest;
-import com.example.StackOverFlowBackend.model.User;
+import com.sami.StackOverFlowBackend.DTO.UserDTO;
+import com.sami.StackOverFlowBackend.model.ExportRequest;
 import org.springframework.stereotype.Service;
 
 import java.io.File;

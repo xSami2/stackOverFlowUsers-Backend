@@ -1,4 +1,4 @@
-package com.example.StackOverFlowBackend.config;
+package com.sami.StackOverFlowBackend.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;

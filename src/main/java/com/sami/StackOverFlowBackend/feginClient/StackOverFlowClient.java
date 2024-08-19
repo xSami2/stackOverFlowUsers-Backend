@@ -1,6 +1,6 @@
-package com.example.StackOverFlowBackend.feginClient;
+package com.sami.StackOverFlowBackend.feginClient;
 
-import com.example.StackOverFlowBackend.model.UsersResponse;
+import com.sami.StackOverFlowBackend.model.UsersResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 

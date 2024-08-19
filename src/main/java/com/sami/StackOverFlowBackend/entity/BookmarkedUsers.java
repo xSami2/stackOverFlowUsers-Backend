@@ -1,4 +1,4 @@
-package com.example.StackOverFlowBackend.entity;
+package com.sami.StackOverFlowBackend.entity;
 
 
 import jakarta.persistence.*;

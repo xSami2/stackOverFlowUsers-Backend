@@ -1,4 +1,4 @@
-package com.example.StackOverFlowBackend;
+package com.sami.StackOverFlowBackend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

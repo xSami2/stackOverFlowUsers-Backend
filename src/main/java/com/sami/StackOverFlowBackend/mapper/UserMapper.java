@@ -1,10 +1,10 @@
-package com.example.StackOverFlowBackend.mapper;
+package com.sami.StackOverFlowBackend.mapper;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.example.StackOverFlowBackend.DTO.UserDTO;
-import com.example.StackOverFlowBackend.model.User;
-import com.example.StackOverFlowBackend.model.UsersResponse;
+import com.sami.StackOverFlowBackend.DTO.UserDTO;
+import com.sami.StackOverFlowBackend.model.User;
+import com.sami.StackOverFlowBackend.model.UsersResponse;
 import org.springframework.stereotype.Component;
 
 @Component

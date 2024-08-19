@@ -1,8 +1,7 @@
-package com.example.StackOverFlowBackend.DTO;
+package com.sami.StackOverFlowBackend.DTO;
 
 
-import com.example.StackOverFlowBackend.model.User;
-import com.example.StackOverFlowBackend.model.UsersResponse;
+import com.sami.StackOverFlowBackend.model.User;
 import lombok.Data;
 
 @Data

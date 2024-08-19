@@ -1,4 +1,4 @@
-package com.example.StackOverFlowBackend.model;
+package com.sami.StackOverFlowBackend.model;
 
 import lombok.Data;
 
