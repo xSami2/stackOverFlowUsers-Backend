@@ -15,7 +15,5 @@ public class BookmarkedUsers {
   @Column(unique = true, nullable = false)
   Long userId;
 
-  public BookmarkedUsers(Long userId) {
-    this.userId = userId;
-  }
+
 }

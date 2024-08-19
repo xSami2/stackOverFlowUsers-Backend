@@ -18,7 +18,8 @@ public class BookmarkedUsersService {
 
     public void saveBookmarkedUser(Long userId) {
         try{
-            BookmarkedUsers bookmarkedUser = new BookmarkedUsers(userId);
+            BookmarkedUsers bookmarkedUser = new BookmarkedUsers();
+            bookmarkedUser.setUserId(userId);
             bookmarkedUsersRepository.save(bookmarkedUser);
         }catch (DataIntegrityViolationException exception){
             System.err.println("The same user Cannot Bookmarked Twice: " + exception.getMessage());
