@@ -80,6 +80,57 @@ __3__ - Run the backend application first.
 __4__ - After the backend is running, start the frontend application.
 
 
+
+# Test Cases
+
+__Test Case 1: Fetch SOF Users__
+
+Input: Run the Application to fetch users.
+Expected Result: The application displays a list of users with fields: name, userId, reputation, lastAccessDate.
+
+__Test Case 2: Save Users to File__
+
+Input: Save the fetched users to a .sofusers file.
+Expected Result: The file is created and contains the user data in the correct format.
+
+__Test Case 3: Sort Users Ascending__
+
+Input: Sort users by userId in ascending order.
+Expected Result: The users are displayed in ascending order by userId.
+
+__Test Case 4: Sort Users Descending__
+
+Input: Sort users by userId in descending order.
+Expected Result: The users are displayed in descending order by userId.
+
+__Test Case 5: Sort Users Normal__
+
+Input: Export users with normal order.
+Expected Result: The users are displayed in normal order.
+
+__Test Case 6: Bookmark a User__
+
+Input: Bookmark a user.
+Expected Result: The user is added to the bookmark list.
+
+__Test Case 7: Unbookmark a User__
+
+Input: Unbookmark a user.
+Expected Result: The user is removed from the bookmark list.
+
+__Test Case 8: Save Bookmarked Users to File__
+
+Input: Save bookmarked users to a .sofusers file.
+Expected Result: The file is created and contains the bookmarked users.
+
+__Test Case 9: Fetch Bookmarked Users__
+Input: Click Checkbox to fetch bookmarked users.
+Expected Result: Only bookmarked users are displayed.
+
+__Test Case 10: View User Details__
+Input: Select a user to view details.
+Expected Result: The detailed information of the selected user is displayed, same as the __.sofusers file__ .
+
 # Note
 
 the __.sofusers__ file will be Saved in the Backend Application in resource folder
