@@ -83,11 +83,11 @@ __4__ - After the backend is running, start the frontend application.
 
 # Test Cases
 
-### __Test Case 1: Fetch SOF Users__
+## __Test Case 1: Fetch SOF Users__
 
-Input: Run the Application to fetch users.
+### Input: Run the Application to fetch users.
 
-Expected Result: The application displays a list of users with fields: name, userId, reputation, lastAccessDate.
+###Expected Result: The application displays a list of users with fields: name, userId, reputation, lastAccessDate.
 
 __Test Case 2: Save Users to File__
 
