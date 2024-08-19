@@ -111,15 +111,15 @@ __4__ - After the backend is running, start the frontend application.
 
 >Expected Result: The user is removed from the bookmark list.
 
-- __Test Case 7: Export Bookmarked Users__
+- __Test Case 8: Export Bookmarked Users__
 
 
 >Expected Result: The file is created and contains the bookmarked users.
 
-- __Test Case 8: Fetch Bookmarked Users__
+- __Test Case 9: Fetch Bookmarked Users__
 
 >Expected Result: Only bookmarked users are displayed.
-- __Test Case 9: View User Details__
+- __Test Case 10: View User Details__
 >Expected Result: The detailed information of the selected user is displayed, same as the __.sofusers file__ .
 
 # Note
