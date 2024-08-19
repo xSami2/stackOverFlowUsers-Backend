@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -17,20 +18,29 @@ public class BookmarkedUsersService {
 
     public void saveBookmarkedUser(Long userId) {
         try{
-            BookmarkedUsers bookmarkedUser = new BookmarkedUsers();
-            bookmarkedUser.setUserId(userId);
+            BookmarkedUsers bookmarkedUser = new BookmarkedUsers(userId);
             bookmarkedUsersRepository.save(bookmarkedUser);
         }catch (DataIntegrityViolationException exception){
-        exception.printStackTrace();
+            System.err.println("The same user Cannot Bookmarked Twice: " + exception.getMessage());
+
         }
 
     }
     public List<Long> getBookmarkedUsersIds(){
-        return bookmarkedUsersRepository.getAllUserIds();
+        try {
+            return bookmarkedUsersRepository.getAllUserIds();
+        }catch (Exception e){
+           System.err.println("An error occurred while fetching bookmarked user IDs: " + e.getMessage());
+            return new ArrayList<>(); // Returning an empty list as a fallback
+        }
     }
 
     @Transactional
     public void deleteBookmarkUser(Long userId) {
-        bookmarkedUsersRepository.deleteByUserId(userId);
+        try {
+             bookmarkedUsersRepository.deleteByUserId(userId);
+        }catch (Exception e){
+            System.err.println("An error occurred while Deleting UserID : " + e.getMessage());
+        }
     }
 }

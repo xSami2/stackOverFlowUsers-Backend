@@ -30,8 +30,13 @@ public class StackOverFlowService {
     private final UserMapper userMapper;
 
     public List<UserDTO> getStackOverFlowUsers() {
-        UsersResponse users = stackOverFlowClient.getUsers();
-        return userMapper.UsersToUserDTOs(users);
+        try {
+            UsersResponse users = stackOverFlowClient.getUsers();
+            return userMapper.UsersToUserDTOs(users);
+        } catch (Exception e) {
+            System.err.println("An error occurred while fetching StackOverflow users: " + e.getMessage());
+            return new ArrayList<>();
+        }
     }
 
 

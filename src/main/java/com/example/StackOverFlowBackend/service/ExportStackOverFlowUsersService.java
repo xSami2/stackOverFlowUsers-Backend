@@ -20,35 +20,35 @@ public class ExportStackOverFlowUsersService {
         List<UserDTO> usersList = request.getUsers();
 
         switch (orderType) {
-            case "Normal" -> writeStackOverFlowUsersFile(usersList);
+            case "Normal" -> {
+                writeStackOverFlowUsersFile(usersList);
+            }
             case "Ascending" -> {
-                List<UserDTO> sortedUsersAscending = sortUsersAscending(usersList);
-                writeStackOverFlowUsersFile(sortedUsersAscending);
+                usersList = sortUsersAscending(usersList);
             }
             case "Descending" -> {
-                List<UserDTO> sortedUsersDescending = sortUsersDescending(usersList);
-                writeStackOverFlowUsersFile(sortedUsersDescending);
+                usersList  = sortUsersDescending(usersList);
             }
         }
+
+        writeStackOverFlowUsersFile(usersList);
+
 
 
     }
 
 
     private List<UserDTO> sortUsersDescending(List<UserDTO> users) {
-        // Create a copy of the original list to sort
         List<UserDTO> sortedUsersDescending = new ArrayList<>(users);
 
         int n = sortedUsersDescending.size();
         for (int i = 0; i < n - 1; i++) {
             int minIndex = i;
-            // Find the index of the smallest element in the unsorted portion
             for (int j = i + 1; j < n; j++) {
                 if (sortedUsersDescending.get(j).getUser_id() > sortedUsersDescending.get(minIndex).getUser_id()) {
                     minIndex = j;
                 }
             }
-            // Swap the smallest element with the first unsorted element
             UserDTO temp = sortedUsersDescending.get(minIndex);
             sortedUsersDescending.set(minIndex, sortedUsersDescending.get(i));
             sortedUsersDescending.set(i, temp);
@@ -57,19 +57,16 @@ public class ExportStackOverFlowUsersService {
         return sortedUsersDescending;
     }
     private List<UserDTO> sortUsersAscending(List<UserDTO> users) {
-        // Create a copy of the original list to sort
         List<UserDTO> sortedUsersAscending = new ArrayList<>(users);
 
         int n = sortedUsersAscending.size();
         for (int i = 0; i < n - 1; i++) {
             int minIndex = i;
-            // Find the index of the smallest element in the unsorted portion
             for (int j = i + 1; j < n; j++) {
                 if (sortedUsersAscending.get(j).getUser_id() < sortedUsersAscending.get(minIndex).getUser_id()) {
                     minIndex = j;
                 }
             }
-            // Swap the smallest element with the first unsorted element
             UserDTO temp = sortedUsersAscending.get(minIndex);
             sortedUsersAscending.set(minIndex, sortedUsersAscending.get(i));
             sortedUsersAscending.set(i, temp);
