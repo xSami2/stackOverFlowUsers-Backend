@@ -81,65 +81,46 @@ __4__ - After the backend is running, start the frontend application.
 
 
 
+
 # Test Cases
 
-## __Test Case 1: Fetch SOF Users__
+- __Test Case 1: Fetch SOF Users__
 
-Input: Run the Application to fetch users.
+>Expected Result: The application displays a list of users with fields: name, userId, reputation, lastAccessDate.
 
-###Expected Result: The application displays a list of users with fields: name, userId, reputation, lastAccessDate.
+- __Test Case 2: Export Users Users in Normal Order__
 
-__Test Case 2: Save Users to File__
+>Expected Result: The file is created and contains the user data in the normal order.
 
-Input: Save the fetched users to a .sofusers file.
+- __Test Case 3: Export Users In Ascending Order__
 
-Expected Result: The file is created and contains the user data in the correct format.
+>Expected Result: The File is exported and displayed in ascending order by userId.
 
-__Test Case 3: Sort Users Ascending__
+- __Test Case 4: Export Users In Descending Order__
 
-Input: Sort users by userId in ascending order.
 
-Expected Result: The users are displayed in ascending order by userId.
+>Expected Result:  The File is exported and displayed in descending order by userId.
 
-__Test Case 4: Sort Users Descending__
+- __Test Case 5: Bookmark a User__
 
-Input: Sort users by userId in descending order.
 
-Expected Result: The users are displayed in descending order by userId.
+>Expected Result: The user is added to the bookmark list.
 
-__Test Case 5: Sort Users Normal__
+- __Test Case 7: Unbookmark a User__
 
-Input: Export users with normal order.
 
-Expected Result: The users are displayed in normal order.
+>Expected Result: The user is removed from the bookmark list.
 
-__Test Case 6: Bookmark a User__
+- __Test Case 7: Export Bookmarked Users__
 
-Input: Bookmark a user.
 
-Expected Result: The user is added to the bookmark list.
+>Expected Result: The file is created and contains the bookmarked users.
 
-__Test Case 7: Unbookmark a User__
+- __Test Case 8: Fetch Bookmarked Users__
 
-Input: Unbookmark a user.
-
-Expected Result: The user is removed from the bookmark list.
-
-__Test Case 8: Save Bookmarked Users to File__
-
-Input: Save bookmarked users to a .sofusers file.
-
-Expected Result: The file is created and contains the bookmarked users.
-
-__Test Case 9: Fetch Bookmarked Users__
-Input: Click Checkbox to fetch bookmarked users.
-
-Expected Result: Only bookmarked users are displayed.
-
-__Test Case 10: View User Details__
-Input: Select a user to view details.
-
-Expected Result: The detailed information of the selected user is displayed, same as the __.sofusers file__ .
+>Expected Result: Only bookmarked users are displayed.
+- __Test Case 9: View User Details__
+>Expected Result: The detailed information of the selected user is displayed, same as the __.sofusers file__ .
 
 # Note
 
