@@ -23,6 +23,7 @@ public class BookmarkedUsersService {
         }catch (DataIntegrityViolationException exception){
             System.err.println("The same user Cannot Bookmarked Twice: " + exception.getMessage());
 
+
         }
 
     }
