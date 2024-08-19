@@ -83,7 +83,7 @@ __4__ - After the backend is running, start the frontend application.
 
 # Test Cases
 
-__Test Case 1: Fetch SOF Users__
+### __Test Case 1: Fetch SOF Users__
 
 Input: Run the Application to fetch users.
 
