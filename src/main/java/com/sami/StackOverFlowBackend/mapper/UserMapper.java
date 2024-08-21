@@ -13,7 +13,7 @@ public class UserMapper {
 
 
     public List<UserDTO> UsersToUserDTOs(UsersResponse usersResponse) {
-        ArrayList<UserDTO> userDTOs = new ArrayList<>();
+        ArrayList<UserDTO> userDTOs = new ArrayList<>(30);
 
         for (User userModel : usersResponse.getItems()){
             UserDTO userDTO = new UserDTO(userModel);
