@@ -2,13 +2,15 @@ package com.sami.StackOverFlowBackend.service;
 
 import com.sami.StackOverFlowBackend.DTO.UserDTO;
 import com.sami.StackOverFlowBackend.model.ExportRequest;
+import org.apache.commons.lang3.time.StopWatch;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.Duration;
+import java.time.Instant;
+import java.util.*;
 
 @Service
 public class ExportStackOverFlowUsersService {
@@ -18,15 +20,18 @@ public class ExportStackOverFlowUsersService {
         String orderType = request.getOrderType();
         List<UserDTO> usersList = request.getUsers();
 
+
+
+
         switch (orderType) {
             case "Normal" -> {
-                writeStackOverFlowUsersFile(usersList);
+            break;
             }
             case "Ascending" -> {
-                usersList = sortUsersAscending(usersList);
+               usersList.sort(Comparator.comparingLong(UserDTO::getUser_id));
             }
             case "Descending" -> {
-                usersList  = sortUsersDescending(usersList);
+                usersList.sort(Comparator.comparingLong(UserDTO::getUser_id).reversed());
             }
         }
 
@@ -37,42 +42,7 @@ public class ExportStackOverFlowUsersService {
     }
 
 
-    private List<UserDTO> sortUsersDescending(List<UserDTO> users) {
-        List<UserDTO> sortedUsersDescending = new ArrayList<>(users);
 
-        int n = sortedUsersDescending.size();
-        for (int i = 0; i < n - 1; i++) {
-            int minIndex = i;
-            for (int j = i + 1; j < n; j++) {
-                if (sortedUsersDescending.get(j).getUser_id() > sortedUsersDescending.get(minIndex).getUser_id()) {
-                    minIndex = j;
-                }
-            }
-            UserDTO temp = sortedUsersDescending.get(minIndex);
-            sortedUsersDescending.set(minIndex, sortedUsersDescending.get(i));
-            sortedUsersDescending.set(i, temp);
-        }
-
-        return sortedUsersDescending;
-    }
-    private List<UserDTO> sortUsersAscending(List<UserDTO> users) {
-        List<UserDTO> sortedUsersAscending = new ArrayList<>(users);
-
-        int n = sortedUsersAscending.size();
-        for (int i = 0; i < n - 1; i++) {
-            int minIndex = i;
-            for (int j = i + 1; j < n; j++) {
-                if (sortedUsersAscending.get(j).getUser_id() < sortedUsersAscending.get(minIndex).getUser_id()) {
-                    minIndex = j;
-                }
-            }
-            UserDTO temp = sortedUsersAscending.get(minIndex);
-            sortedUsersAscending.set(minIndex, sortedUsersAscending.get(i));
-            sortedUsersAscending.set(i, temp);
-        }
-
-        return sortedUsersAscending;
-    }
     private void writeStackOverFlowUsersFile(List<UserDTO> users) throws IOException {
         try {
             FileWriter myWriter = new FileWriter(new File( "src/main/resources","stackOverFlowUsers.sofusers"));
