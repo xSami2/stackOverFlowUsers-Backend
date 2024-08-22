@@ -1,41 +1,47 @@
 package com.sami.StackOverFlowBackend.service;
 
+import com.sami.StackOverFlowBackend.DTO.API_Responses;
 import com.sami.StackOverFlowBackend.DTO.UserDTO;
 import com.sami.StackOverFlowBackend.model.ExportRequest;
-import org.apache.commons.lang3.time.StopWatch;
-import org.springframework.stereotype.Service;
 
+import org.springframework.stereotype.Service;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.Duration;
-import java.time.Instant;
-import java.util.*;
+import java.util.Comparator;
+import java.util.List;
 
 @Service
 public class ExportStackOverFlowUsersService {
 
-    public void exportStackOverFlowUsersFile(ExportRequest request) throws IOException {
-
-        String orderType = request.getOrderType();
-        List<UserDTO> usersList = request.getUsers();
+    public API_Responses<String> exportStackOverFlowUsersFile(ExportRequest request) throws IOException {
+        try{
 
 
-
-
-        switch (orderType) {
-            case "Normal" -> {
-            break;
+            String orderType = request.getOrderType();
+            List<UserDTO> usersList = request.getUsers();
+            switch (orderType) {
+                case "Normal" -> {
+                    break;
+                }
+                case "Ascending" -> {
+                    usersList.sort(Comparator.comparingLong(UserDTO::getUser_id));
+                }
+                case "Descending" -> {
+                    usersList.sort(Comparator.comparingLong(UserDTO::getUser_id).reversed());
+                }
             }
-            case "Ascending" -> {
-               usersList.sort(Comparator.comparingLong(UserDTO::getUser_id));
-            }
-            case "Descending" -> {
-                usersList.sort(Comparator.comparingLong(UserDTO::getUser_id).reversed());
-            }
+
+            writeStackOverFlowUsersFile(usersList);
+            return new API_Responses<>(true ,"Export File has been done" , null);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return new API_Responses<>(false ,"Cant Export File" , null);
+
         }
 
-        writeStackOverFlowUsersFile(usersList);
+
+
 
 
 

@@ -1,6 +1,7 @@
 package com.sami.StackOverFlowBackend.controller;
 
 
+import com.sami.StackOverFlowBackend.DTO.API_Responses;
 import com.sami.StackOverFlowBackend.DTO.UserDTO;
 import com.sami.StackOverFlowBackend.service.StackOverFlowService;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +20,7 @@ public class StackOverFlowUsersController {
 
 
     @GetMapping
-    public List<UserDTO> getStackOverFlowUsers() {
+    public API_Responses<List<UserDTO>> getStackOverFlowUsers() {
          return stackOverFlowService.getStackOverFlowUsers();
     }
 

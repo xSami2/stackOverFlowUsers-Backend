@@ -1,5 +1,7 @@
 package com.sami.StackOverFlowBackend.controller;
 
+import com.sami.StackOverFlowBackend.DTO.API_Responses;
+import com.sami.StackOverFlowBackend.DTO.UserDTO;
 import com.sami.StackOverFlowBackend.model.ExportRequest;
 import com.sami.StackOverFlowBackend.service.ExportStackOverFlowUsersService;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +20,7 @@ public class ExportStackOverFlowUsersController {
     private final ExportStackOverFlowUsersService exportStackOverFlowUsersService;
 
     @PostMapping
-    public void exportStackOverFlowUsersFile(@RequestBody ExportRequest request) throws IOException {
-        exportStackOverFlowUsersService.exportStackOverFlowUsersFile(request);
+    public API_Responses<String> exportStackOverFlowUsersFile(@RequestBody ExportRequest request) throws IOException {
+       return exportStackOverFlowUsersService.exportStackOverFlowUsersFile(request);
     }
 }

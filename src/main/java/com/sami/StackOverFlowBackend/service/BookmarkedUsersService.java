@@ -1,5 +1,6 @@
 package com.sami.StackOverFlowBackend.service;
 
+import com.sami.StackOverFlowBackend.DTO.API_Responses;
 import com.sami.StackOverFlowBackend.entity.BookmarkedUsers;
 import com.sami.StackOverFlowBackend.repository.BookMarkedUsersRepository;
 import jakarta.transaction.Transactional;
@@ -16,34 +17,35 @@ public class BookmarkedUsersService {
 
     private final BookMarkedUsersRepository bookmarkedUsersRepository;
 
-    public void saveBookmarkedUser(Long userId) {
+    public API_Responses<String> saveBookmarkedUser(Long userId) {
         try{
             BookmarkedUsers bookmarkedUser = new BookmarkedUsers();
             bookmarkedUser.setUserId(userId);
             bookmarkedUsersRepository.save(bookmarkedUser);
+            return new API_Responses<>(true , "User with ID " +userId+ " has been added to bookmarked" , null);
         }catch (DataIntegrityViolationException exception){
-            System.err.println("The same user Cannot Bookmarked Twice: " + exception.getMessage());
-
-
-
+            return new API_Responses<>(false , "User with ID " +userId+ " is Already bookmarked" , null);
         }
 
     }
-    public List<Long> getBookmarkedUsersIds(){
+    public API_Responses<List<Long>> getBookmarkedUsersIds(){
         try {
-            return bookmarkedUsersRepository.getAllUserIds();
+            List<Long> userIds = bookmarkedUsersRepository.getAllUserIds();
+            return new API_Responses<>(true , "Bookmarked User IDs has been fetch successfully " , userIds);
+
         }catch (Exception e){
            System.err.println("An error occurred while fetching bookmarked user IDs: " + e.getMessage());
-            return new ArrayList<>(); // Returning an empty list as a fallback
+            return new API_Responses<>(true , "An error occurred while fetching bookmarked user IDs:" , null);
         }
     }
 
     @Transactional
-    public void deleteBookmarkUser(Long userId) {
+    public API_Responses<String> deleteBookmarkUser(Long userId) {
         try {
              bookmarkedUsersRepository.deleteByUserId(userId);
+            return new API_Responses<>(true , "User with ID " +userId+ " has been deleted from bookmarked" , null);
         }catch (Exception e){
-            System.err.println("An error occurred while Deleting UserID : " + e.getMessage());
+            return new API_Responses<>(true , "An error occurred while fetching bookmarked user IDs:" , null);
         }
     }
 }

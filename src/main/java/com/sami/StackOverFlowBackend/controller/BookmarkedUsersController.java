@@ -1,5 +1,6 @@
 package com.sami.StackOverFlowBackend.controller;
 
+import com.sami.StackOverFlowBackend.DTO.API_Responses;
 import com.sami.StackOverFlowBackend.service.BookmarkedUsersService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -14,18 +15,19 @@ public class BookmarkedUsersController {
     private final BookmarkedUsersService bookmarkedUsersService;
 
     @PostMapping("/bookmarkUser")
-    public void saveBookmarkUser(@RequestBody Long userId) {
-        bookmarkedUsersService.saveBookmarkedUser(userId);
+    public API_Responses<String> saveBookmarkUser(@RequestBody Long userId) {
+      return bookmarkedUsersService.saveBookmarkedUser(userId);
+    }
+
+
+    @GetMapping("/bookmarkedUsersIds")
+    public API_Responses<List<Long>> getBookmarkedUsersIds() {
+        return bookmarkedUsersService.getBookmarkedUsersIds();
     }
 
     @DeleteMapping("/unmarkUser")
-    public void deleteBookmarkUser(@RequestBody Long userId) {
-        bookmarkedUsersService.deleteBookmarkUser(userId);
-    }
-
-    @GetMapping("/bookmarkedUsersIds")
-    public List<Long> getBookmarkedUsersIds() {
-        return bookmarkedUsersService.getBookmarkedUsersIds();
+    public API_Responses<String> deleteBookmarkUser(@RequestBody Long userId) {
+        return bookmarkedUsersService.deleteBookmarkUser(userId);
     }
 
 }
