@@ -1,5 +1,6 @@
 package com.sami.StackOverFlowBackend.service;
 
+import com.sami.StackOverFlowBackend.DTO.API_Responses;
 import com.sami.StackOverFlowBackend.DTO.UserDTO;
 import com.sami.StackOverFlowBackend.feginClient.StackOverFlowClient;
 import com.sami.StackOverFlowBackend.mapper.UserMapper;
@@ -20,13 +21,14 @@ public class StackOverFlowService {
     private final StackOverFlowClient stackOverFlowClient;
     private final UserMapper userMapper;
 
-    public List<UserDTO> getStackOverFlowUsers() {
+    public API_Responses<List<UserDTO>> getStackOverFlowUsers() {
         try {
             UsersResponse users = stackOverFlowClient.getUsers();
-            return userMapper.UsersToUserDTOs(users);
+            List<UserDTO> userDTOs = userMapper.UsersToUserDTOs(users);
+            return new API_Responses<>(true , "StackOverFlow User Data" , userDTOs);
         } catch (Exception e) {
             System.err.println("An error occurred while fetching StackOverflow users: " + e.getMessage());
-            return new ArrayList<>();
+            return  new API_Responses<>(false , "Exception Error" , null);
         }
     }
 
